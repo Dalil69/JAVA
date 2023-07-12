@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
+public class ATM {
     private static Map<Integer, CompteBancaire> comptes = new HashMap<>();
 
     public static void main(String[] args) {
@@ -14,5 +14,32 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Bienvenue dans l'ATM !");
+
+        boolean terminer = false;
+
+        while (!terminer) {
+            System.out.println("\nEntrez votre code PIN : ");
+            int codePIN = scanner.nextInt();
+
+            if (comptes.containsKey(codePIN)) {
+                CompteBancaire compte = comptes.get(codePIN);
+
+                System.out.println("Bienvenue, " + compte.getNom());
+                System.out.println("Votre solde actuel est de : " + compte.getSolde() + " euros");
+
+                boolean quitter = false;
+
+                while (!quitter) {
+                    System.out.println("\nQue souhaitez-vous faire ?");
+                    System.out.println("1. Retrait");
+                    System.out.println("2. Dépôt");
+                    System.out.println("3. Vérifier le solde");
+                    System.out.println("4. Quitter le compte");
+
+                    System.out.print("Entrez votre choix : ");
+                    int choix = scanner.nextInt();
+                }
+            }
+        }
     }
 }
