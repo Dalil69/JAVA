@@ -38,8 +38,49 @@ public class ATM {
 
                     System.out.print("Entrez votre choix : ");
                     int choix = scanner.nextInt();
+                    switch (choix) {
+                        case 1:
+                            effectuerRetrait(scanner, compte); // Appelle la méthode pour effectuer un retrait
+                            break;
+                        case 2:
+                            effectuerDepot(scanner, compte); // Appelle la méthode pour effectuer un dépôt
+                            break;
+                        case 3:
+                            afficherSolde(compte); // Appelle la méthode pour afficher le solde
+                            break;
+                        case 4:
+                            quitter = true; // Quitte le compte
+                            break;
+                        default:
+                            System.out.println("Choix invalide !");
+                    }
                 }
+            } else {
+                System.out.println("Code PIN incorrect !");
+            }
+
+            System.out.println("Voulez-vous effectuer une autre opération ? (Oui/Non)");
+            String reponse = scanner.next();
+
+            if (reponse.equalsIgnoreCase("Non")) {
+                terminer = true;
             }
         }
+
+        System.out.println("Merci d'avoir utilisé notre ATM !");
+        scanner.close();
+    }
+    private static void effectuerDepot(Scanner scanner, CompteBancaire compte) {
+        System.out.print("Entrez le montant à déposer : ");
+        double montant = scanner.nextDouble();
+
+        compte.deposer(montant); // Appelle la méthode pour déposer le montant spécifié
+        System.out.println("Dépôt de " + montant + " euros effectué avec succès !");
+    }
+
+    private static void afficherSolde(CompteBancaire compte) {
+        System.out.println("Votre solde actuel est de : " + compte.getSolde() + " euros");
     }
 }
+
+                }
