@@ -21,11 +21,11 @@ public class ATM {
             System.out.println("\nEntrez votre code PIN : ");
             int codePIN = scanner.nextInt();
 
-            if (comptes.containsKey(codePIN)) {
-                CompteBancaire compte = comptes.get(codePIN);
+            if (comptes.containsKey(codePIN)) { // Vérifie si le code PIN est valide
+                CompteBancaire compte = comptes.get(codePIN); // Récupère le compte associé au code PIN
 
-                System.out.println("Bienvenue, " + compte.getNom());
-                System.out.println("Votre solde actuel est de : " + compte.getSolde() + " euros");
+                System.out.println("Bienvenue, " + compte.getNom()); // Affiche le nom du titulaire du compte
+                System.out.println("Votre solde actuel est de : " + compte.getSolde() + " euros"); // Affiche le solde du compte
 
                 boolean quitter = false;
 
