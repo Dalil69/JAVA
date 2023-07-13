@@ -38,6 +38,7 @@ public class ATM {
 
                     System.out.print("Entrez votre choix : ");
                     int choix = scanner.nextInt();
+
                     switch (choix) {
                         case 1:
                             effectuerRetrait(scanner, compte); // Appelle la méthode pour effectuer un retrait
@@ -70,6 +71,19 @@ public class ATM {
         System.out.println("Merci d'avoir utilisé notre ATM !");
         scanner.close();
     }
+
+    private static void effectuerRetrait(Scanner scanner, CompteBancaire compte) {
+        System.out.print("Entrez le montant à retirer : ");
+        double montant = scanner.nextDouble();
+
+        if (montant <= compte.getSolde()) {
+            compte.retirer(montant); // Appelle la méthode pour retirer le montant spécifié
+            System.out.println("Retrait de " + montant + " euros effectué avec succès !");
+        } else {
+            System.out.println("Solde insuffisant !");
+        }
+    }
+
     private static void effectuerDepot(Scanner scanner, CompteBancaire compte) {
         System.out.print("Entrez le montant à déposer : ");
         double montant = scanner.nextDouble();
@@ -83,4 +97,3 @@ public class ATM {
     }
 }
 
-                }
