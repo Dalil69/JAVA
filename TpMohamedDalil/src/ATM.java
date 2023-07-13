@@ -1,3 +1,5 @@
+import Classes.CompteBancaire;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;

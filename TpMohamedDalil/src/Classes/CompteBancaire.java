@@ -1,3 +1,5 @@
+package Classes;
+
 public class CompteBancaire {
     private String nom; // Nom du titulaire du compte
     private int codePIN; // Code PIN du compte
